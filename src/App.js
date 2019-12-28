@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RecursiveElement from './RecursiveElement.js';
+
+const mainElement = {
+  name: 'main',
+  elements: [
+    { name: 'first level 1', elements: [] },
+    { name: 'first level 2', elements: [] },
+    { name: 'first level 3', elements: [
+      { name: 'second level 1', elements: [] },
+      { name: 'second level 2', elements: [] },
+      { name: 'second level 3', elements: [] },
+    ] },
+    { name: 'first level 4', elements: [
+      { name: 'second level 1', elements: [] },
+      { name: 'second level 2', elements: [] },
+      { name: 'second level 3', elements: [
+        { name: 'third level 1', elements: [] },
+        { name: 'third level 2', elements: [] },
+        { name: 'third level 3', elements: [] },
+      ] },
+    ] }
+  ]
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RecursiveElement name={"foos"} />
     </div>
   );
 }
