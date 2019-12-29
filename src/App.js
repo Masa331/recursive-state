@@ -23,24 +23,10 @@ const mainElement = {
   ]
 };
 
-function addCommonHandlers(element) {
-  element.collapse = () => { element.collapsed = true };
-  element.expand = () => { element.collapsed = false };
-
-  element.elements.forEach((el) => {
-    addCommonHandlers(el);
-  });
-
-  return element;
-}
-
-const enhanced = addCommonHandlers(mainElement);
-console.log(enhanced)
-
 function App() {
   return (
     <div>
-      <RecursiveElement name={enhanced.name} elements={enhanced.elements} level={0} collapsed={enhanced.collapsed} />
+      <RecursiveElement name={mainElement.name} elements={mainElement.elements} level={0} collapsed={mainElement.collapsed} />
     </div>
   );
 }
